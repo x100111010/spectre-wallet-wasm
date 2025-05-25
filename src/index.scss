@@ -1,0 +1,244 @@
+@tailwind base;
+/* Preflight will be injected here */
+
+@layer base {
+  @font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/Roboto-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/Lato-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/Rubik-Regular.ttf);
+  }
+
+  body {
+    @apply bg-primary font-lato dark:bg-[#404040] dark:text-gray-100;
+  }
+
+  h1 {
+    @apply text-white md:text-8xl text-4xl;
+  }
+
+  h2 {
+    @apply text-white md:text-4xl text-2xl;
+  }
+
+  h3 {
+    @apply text-white md:text-2xl;
+  }
+
+  h4 {
+    @apply text-white md:text-lg;
+  }
+
+  a {
+    @apply text-white dark:text-white underline;
+  }
+
+  p {
+    @apply text-white dark:text-gray-100 text-lg md:text-base;
+  }
+
+  button {
+    @apply text-white dark:text-white border border-white dark:border-gray-400 py-2 px-4 hover:shadow-md hover:shadow-secondary;
+  }
+
+  ul {
+    li:not(:first-child) {
+      @apply pt-1;
+    }
+    @apply list-disc pl-8 pt-1 text-white dark:text-gray-100;
+  }
+
+  ol {
+    li:not(:first-child) {
+      @apply pt-1;
+    }
+    @apply list-decimal pl-8 pt-1 text-white dark:text-gray-100;
+  }
+
+  .markdown {
+    @apply p-4 overflow-auto select-text;
+
+    ::-moz-selection {
+      /* Code for Firefox */
+      color: #ff005a;
+      background: white;
+    }
+
+    ::selection {
+      color: #ff005a;
+      background: white;
+    }
+
+    h2 {
+      &:not(:first-child) {
+        @apply mt-4;
+      }
+      @apply mb-4 border-b border-white dark:border-gray-600 inline-block font-rubik text-4xl;
+    }
+
+    h3 {
+      &:not(:first-child) {
+        @apply mt-4;
+      }
+      @apply font-rubik text-3xl;
+    }
+
+    & > p {
+      @apply mt-4 text-xl;
+    }
+
+    code {
+      @apply bg-secondary text-white font-bold px-px;
+    }
+
+    ul,
+    ol {
+      li:not(:first-child) {
+        @apply pt-2;
+      }
+      @apply list-disc pl-8 pt-4 text-white dark:text-gray-100 text-xl;
+    }
+
+    a {
+      @apply hover:text-secondary hover:cursor-pointer transition-colors;
+    }
+
+    .react-flow {
+      h2 {
+        @apply mb-4 border-b border-white dark:border-gray-600 inline-block font-rubik text-4xl;
+      }
+
+      h3 {
+        @apply font-rubik;
+      }
+
+      p {
+        @apply mt-0 text-xl;
+      }
+
+      a {
+        @apply hover:text-secondary hover:cursor-pointer transition-colors;
+      }
+    }
+  }
+}
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.node-dashboard {
+  @apply w-full rounded p-4;
+
+  .dashboard-section-header {
+    @apply col-span-2 md:col-span-3 pb-2 mb-2 border-b border-white dark:border-gray-600 text-white dark:text-gray-100 text-sm font-medium;
+    
+    &:not(:first-child) {
+      @apply mt-2;
+    }
+  }
+
+  .dashboard-item {
+    @apply flex flex-col;
+
+    .item-label {
+      @apply text-white dark:text-gray-200 text-xs mb-1 truncate;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .item-value {
+      @apply bg-secondary/40 px-2 py-1 rounded font-mono text-white dark:text-white truncate;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &.smaller {
+        @apply text-xs;
+      }
+    }
+  }
+
+  .dashboard-grid {
+    @apply grid grid-cols-2 md:grid-cols-3 gap-y-3 gap-x-6;
+  }
+}
+
+@import url("../node_modules/@xyflow/react/dist/style.css");
+
+.react-flow {
+  --xy-edge-stroke-default: white;
+  --xy-edge-stroke-width-default: 1;
+  --xy-edge-stroke-selected-default: #555;
+
+  --xy-connectionline-stroke-default: #b1b1b7;
+  --xy-connectionline-stroke-width-default: 1;
+
+  --xy-attribution-background-color-default: rgba(255, 255, 255, 0.5);
+
+  --xy-minimap-background-color-default: #fff;
+  --xy-minimap-mask-background-color-default: rgba(240, 240, 240, 0.6);
+  --xy-minimap-mask-stroke-color-default: transparent;
+  --xy-minimap-mask-stroke-width-default: 1;
+  --xy-minimap-node-background-color-default: #e2e2e2;
+  --xy-minimap-node-stroke-color-default: transparent;
+  --xy-minimap-node-stroke-width-default: 2;
+
+  --xy-background-color-default: transparent;
+  --xy-background-pattern-dots-color-default: #91919a;
+  --xy-background-pattern-lines-color-default: #eee;
+  --xy-background-pattern-cross-color-default: #e2e2e2;
+  background-color: var(--xy-background-color, var(--xy-background-color-default));
+  --xy-node-color-default: white;
+  --xy-node-border-default: 1px solid white;
+  --xy-node-background-color-default: transparent;
+  --xy-node-group-background-color-default: rgba(15, 11, 11, 0.25);
+  --xy-node-boxshadow-hover-default: 0 1px 4px 1px rgba(0, 0, 0, 0.08);
+  --xy-node-boxshadow-selected-default: 0 0 0 0.5px white;
+  --xy-node-border-radius-default: 2px;
+
+  --xy-handle-background-color-default: white;
+  --xy-handle-border-color-default: #fff;
+
+  --xy-selection-background-color-default: rgba(0, 89, 220, 0.08);
+  --xy-selection-border-default: 1px dotted rgba(0, 89, 220, 0.8);
+
+  --xy-controls-button-background-color-default: #fefefe;
+  --xy-controls-button-background-color-hover-default: #f4f4f4;
+  --xy-controls-button-color-default: inherit;
+  --xy-controls-button-color-hover-default: inherit;
+  --xy-controls-button-border-color-default: #eee;
+  --xy-controls-box-shadow-default: 0 0 2px 1px rgba(0, 0, 0, 0.08);
+
+  --xy-edge-label-background-color-default: transparent;
+  --xy-edge-label-color-default: inherit;
+  --xy-resize-background-color-default: #3367d9;
+}
